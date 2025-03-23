@@ -1,0 +1,51 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Courses List {% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Courses List</h1>
+  <hr>
+  <div class="d-flex justify-content-start">
+    <a href="{% url 'addCourse' %}" class="btn btn-dark mx-1">Add Course</a>
+    <a href="{% url 'deletedCourses' %}" class="btn btn-dark mx-1">Deleted Courses</a>
+  </div>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Fees</th>
+        <th scope="col">Trainer</th>
+        <th scope="col">Track</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+        <tr>
+          <td>{{ course.course_name }}</td>
+          <td>{{ course.course_duration }}</td>
+          <td>{{ course.course_fee }}</td>
+          <td>{{ course.course_trainer }}</td>
+          <td>
+            {% if course.track_display %}
+              {{ course.track_display }}
+            {% else %}
+              No Track Assigned
+            {% endif %}
+          </td>
+          <td>{{ course.course_start_date }}</td>
+          <td>{{ course.course_end_date }}</td>
+          <td> 
+            <a class="btn btn-dark p-1" href="{% url "courseDetails" course.course_id %}" > Details </a>
+            <a class="btn btn-danger p-1 delete-btn" href="#" data-url="{% url 'deleteCourse' course.course_id %}" > Delete </a>
+            <a class="btn btn-primary p-1" href="{% url "updateCourse" course.course_id %}" > Update </a>
+          </td>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

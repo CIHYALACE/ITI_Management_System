@@ -1,0 +1,21 @@
+{% extends "layout/base.html" %}
+{%block title%} Home Page {%endblock%}
+{% load static %}
+
+{%block content%}
+
+
+
+<div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
+  <a type="button" class="btn btn-dark px-5" href="/admin">Admin</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "TraineesHome" %}">Tarinees</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "courseHome" %}">Courses</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "TracksHome" %}">Tracks</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "api" %}">API</a>
+  <a type="button" class="btn btn-dark px-5" href="http://localhost:3000">React Page</a> 
+</div>
+
+<div class="col-12 d-flex justify-content-center bg-dark">
+  <img src="{% static 'images/1520155058658.jpg' %}" alt="home">
+</div>
+{% endblock %}

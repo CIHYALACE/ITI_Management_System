@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+ {%block content%}
+<div class="container">
+  <h1 class="mb-5">Add Trainee via Form</h1>
+  <a href="{% url "TraineesList" %}" class="btn btn-dark">Back</a>
+  <hr />
+  {% load crispy_forms_tags %}
+  <form class="w-50 row my-3" method="POST">
+    {% csrf_token %}
+
+
+    {{form |crispy }}
+
+    <button type="submit" class="btn btn-dark col-5">Add Trainee</button>
+  </form>
+</div>
+{% endblock %}

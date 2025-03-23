@@ -1,0 +1,67 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Deleted Track {% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1> Deleted Track </h1>
+  <hr>
+  <div class="d-flex justify-content-start">
+    <a href="{% url "TracksList" %}" class="btn btn-dark mx-1">Back</a>
+  </div>
+  {% if tracks %}
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Supervisor</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for track in tracks %}
+        <tr>
+          <td>{{ track.track_id }}</td>
+          <td>{{ track.track_name }}</td>
+          <td>{{ track.track_duration }}</td>
+          <td>{{ track.track_supervisor }}</td>
+          <td>{{ track.track_start_date }}</td>
+          <td>{{ track.track_end_date }}</td>
+          <td> 
+            <a class="btn btn-dark p-1" href="#" > Details </a>
+            <a class="btn btn-danger p-1 delete-btn" href="#" data-url="{% url 'HardDeleteTrack' track_id=track.track_id %}" > Delete </a>
+            <a class="btn btn-primary p-1" href="{% url "RestoreTrack" track.track_id %}" > Restore </a>
+          </td>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3>No deleted tracks...</h3>
+  {% endif %}
+</div>
+<script>
+  document.querySelectorAll(".delete-btn").forEach(button => {
+      button.addEventListener("click", function(event) {
+        event.preventDefault();  // Prevents immediate redirection
+          let deleteUrl = this.getAttribute("data-url"); 
+          
+          Swal.fire({
+              title: "Are you sure?",
+              text: "This action cannot be undone!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Yes, delete it!",
+              cancelButtonText: "Cancel"
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = deleteUrl;
+              }
+          });
+      });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Deleted Courses {% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Deleted Courses</h1>
+  <hr>
+  <a href="{% url 'courseList' %}" class="btn btn-dark mx-1">Course List</a>
+  <div class="d-flex justify-content-start">
+  </div>
+    {% if courses %}
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Fees</th>
+        <th scope="col">Trainer</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+        <tr>
+          <td>{{ course.course_id }}</td>
+          <td>{{ course.course_name }}</td>
+          <td>{{ course.course_duration }}</td>
+          <td>{{ course.course_fee }}</td>
+          <td>{{ course.course_trainer }}</td>
+          <td>{{ course.course_start_date }}</td>
+          <td>{{ course.course_end_date }}</td>
+          <td> 
+            <a class="btn btn-dark p-1" href="{% url "courseDetails" course.course_id %}" > Details </a>
+            <a class="btn btn-danger p-1 delete-btn" href="#" data-url="{% url 'HardDeleteCourse' course.course_id %}" > Delete </a>
+            <a class="btn btn-primary p-1" href="{% url "restoreCourse" course.course_id %}" > Restore </a>
+          </td>
+      {% endfor %}
+    </tbody>
+  </table>
+    {% else %}
+      <h3> No Courses Deleted.... </h3>
+  {% endif %}
+</div>
+{% endblock %}

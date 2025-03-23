@@ -1,0 +1,16 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Update Trainee {% endblock %}
+
+{% block content %}
+<div class="container my-3 ">
+  <h2>Update Trainee</h2>
+  <hr>
+  <form method="POST" class="col-md-5">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="{% url "TraineesList" %}" class="btn btn-dark">Back</a>
+  </form>
+</div>
+{% endblock %}

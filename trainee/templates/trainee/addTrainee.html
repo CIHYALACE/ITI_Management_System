@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+
+{%block title%} Add trainee {%endblock%}
+
+
+
+{%block content%}
+<div class="container my-3">
+  <h1 class="mb-5">Add Trainee</h1>
+  <a href="{% url "TraineesList" %}" class="btn btn-dark">Back</a>
+  <hr />
+  <form class="col-12 col-lg-6 row" method="POST">
+    {% csrf_token %}
+    <div class="mb-3 col-5">
+      <label class="form-label">First Name: </label>
+      <input type="text" name="firstName" class="form-control" />
+    </div>
+    <div class="mb-3 col-5">
+      <label class="form-label">Last Name: </label>
+      <input type="text" name="lastName" class="form-control" />
+    </div>
+
+    <div class="mb-3 col-10">
+      <label class="form-label">Trainee Email: </label>
+      <input type="email" name="email" class="form-control" />
+    </div>
+
+    <div class="mb-3 col-10">
+      <label class="form-label">Trainee Phone: </label>
+      <input type="text" name="phone" class="form-control" />
+    </div>
+
+    <div class="mb-3 col-10">
+      <label class="form-label">Trainee Address: </label>
+      <input type="text" name="address" class="form-control" required />
+    </div>
+
+    <div class="mb-3 col-10">
+      <label class="form-label">Trainee Image: </label>
+      <input type="text" name="image" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-dark col-5">Add Trainee</button>
+  </form>
+</div>
+{% endblock %}

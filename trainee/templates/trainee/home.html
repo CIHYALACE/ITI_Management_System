@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+
+{%block title%} Trainees {%endblock%}
+
+{%block content%}
+<div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
+  <a type="button" class="btn btn-dark px-5" href="{% url "TraineesList" %}">Trainees List</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "AddTrainee" %}">Add Trainee</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "TraineesList" %}">Update Trainee</a>
+</div>
+
+<div class="col-12 d-flex justify-content-center bg-dark">
+  <img src="{% static 'images/1520155058658.jpg' %}" alt="home">
+</div>
+{% endblock %}

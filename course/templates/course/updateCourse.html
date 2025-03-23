@@ -1,0 +1,39 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Update Course {% endblock %}
+
+{% block content %}
+<div class="container my-3">
+  <h2>Update Course</h2>
+  <hr>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="course_name">Course Name</label>
+      <input type="text" class="form-control" id="course_name" name="course_name" value="{{ course.course_name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="course_duration">Course Duration</label>
+      <input type="text" class="form-control" id="course_duration" name="course_duration" value="{{ course.course_duration }}" required>
+    </div>
+    <div class="form-group">
+      <label for="course_fee">Course Fee</label>
+      <input type="text" class="form-control" id="course_fee" name="course_fee" value="{{ course.course_fee }}" required>
+    </div>
+    <div class="form-group">
+      <label for="course_trainer">Course Trainer</label>
+      <input type="text" class="form-control" id="course_trainer" name="course_trainer" value="{{ course.course_trainer }}" required>
+    </div>
+    <div class="form-group">
+      <label for="course_start_date">Course Start Date</label>
+      <input type="date" class="form-control" id="course_start_date" name="course_start_date" value="{{ course.course_start_date }}" required>
+    </div>
+    <div class="form-group">
+      <label for="course_end_date">Course End Date</label>
+      <input type="date" class="form-control" id="course_end_date" name="course_end_date" value="{{ course.course_end_date }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="{% url 'courseList' %}" class="btn btn-dark mx-1">Course List</a>
+  </form>
+</div>
+{% endblock %}

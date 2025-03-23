@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+
+{% block title %} Tracks {% endblock %}
+
+{%block content%}
+<div class="btn-group d-flex justify-content-center" role="group" aria-label="Basic example">
+  <a type="button" class="btn btn-dark px-5" href="{% url "TracksList" %}">Tracks List</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "AddTrack" %}">Add Track</a>
+  <a type="button" class="btn btn-dark px-5" href="{% url "TracksList" %}">Update Track</a>
+</div>
+
+<div class="col-12 d-flex justify-content-center bg-dark">
+  <img src="{% static 'images/1520155058658.jpg' %}" alt="home">
+</div>
+{% endblock %}

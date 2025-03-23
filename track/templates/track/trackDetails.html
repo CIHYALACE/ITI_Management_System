@@ -1,0 +1,19 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Track Details {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Track Details</h1>
+    <hr>
+    <div class="d-flex justify-content-start">
+        <a href="{% url "TracksList" %}" class="btn btn-dark mx-1">Back</a>
+    </div>
+    <p> Track Id: {{ track.track_id }}</p>
+    <p> Track Name: {{ track.track_name }}</p>
+    <p> Track Duration: {{ track.track_duration }}</p>
+    <p> Track SuperVisor: {{ track.track_supervisor }}</p>
+    <p> Track Start Date: {{ track.track_start_date }}</p>
+    <p> Track End Date: {{ track.track_end_date }}</p>  
+</div>
+{% endblock %}

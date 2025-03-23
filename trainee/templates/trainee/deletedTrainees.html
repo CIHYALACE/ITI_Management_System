@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %} 
+
+{% block title %} Deleted Trainees {% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Trainees List</h2>
+  <hr>
+  <a href="{% url "TraineesList" %}" class="btn btn-dark">Back</a>
+  {% if trainees %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        {% comment %}  trainee_id | trainee_first_name | trainee_last_name | trainee_email | trainee_phone | trainee_address | trainee_image {% endcomment %}
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone_no</th>
+        <th scope="col">Address</th>
+        <th scope="col">Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for trainee in trainees %}
+        <tr>
+          <td>{{trainee.trainee_id}}</td>
+          <td>{{trainee.trainee_first_name}} {{trainee.trainee_last_name}}</td>
+          <td>{{trainee.trainee_email}}</td>
+          <td>{{trainee.trainee_phone}}</td>
+          <td>{{trainee.trainee_address}}</td>
+          <td>{{trainee.trainee_image}}</td>
+          <td>
+            <a href="{% url "traineeProfile" trainee.trainee_id %}" class="btn btn-dark p-1">Profile</a>
+            <a href="#" data-url="{% url 'HardDeleteTrainee' trainee.trainee_id %}" class="btn btn-danger p-1 delete-btn">Delete</a>
+            <a href="{% url "RestoreTrainee" trainee.trainee_id %}" class="btn btn-primary p-1">Restore</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    {% else %}
+    <h3>No Deleted Trainees...</h3>
+  {% endif %}
+</div>
+{% endblock %}

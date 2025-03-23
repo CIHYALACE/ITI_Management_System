@@ -1,0 +1,20 @@
+{% extends "layout/base.html" %}
+
+{%block title%} Course Details {%endblock%}
+
+        
+    {% block content %}
+    <div class="container my-3">
+    <h1>Course Details</h1>
+    <hr>
+    <p> Course Id: {{ course.course_id }}</p>
+    <p> Course Name: {{ course.course_name }}</p>
+    <p> Course Duration: {{ course.course_duration }}</p>
+    <p> Course Fees: {{ course.course_fee }}</p>
+    <p> Course Trainer: {{ course.course_trainer }}</p>
+    <p> Course Start Date: {{ course.course_start_date }}</p>
+    <p> Course End Date: {{ course.course_end_date }}</p>
+    
+    <a href="{% url 'courseList' %}" class="btn btn-dark mx-1">Course List</a>
+    </div>
+    {% endblock %}

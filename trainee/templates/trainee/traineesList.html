@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %} 
+
+{% block title %} Trainees List {% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Trainees List</h2>
+  <hr>
+  <a href="{% url 'AddTrainee' %}" class="btn btn-dark">Add Trainee</a>
+  <a href="{% url 'AddTraineeViaForm' %}" class="btn btn-outline-dark">Add Trainee Via Forms</a>
+  <a href="{% url 'DeletedTrainees' %}" class="btn btn-dark">Deleted Trainees</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        {% comment %}  trainee_id | trainee_first_name | trainee_last_name | trainee_email | trainee_phone | trainee_address | trainee_image {% endcomment %}
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone_no</th>
+        <th scope="col">Track</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for trainee in trainees %}
+        <tr>
+          <td>{{trainee.trainee_first_name}} {{trainee.trainee_last_name}}</td>
+          <td>{{trainee.trainee_email}}</td>
+          <td>{{trainee.trainee_phone}}</td>
+          <td>{% if trainee.track_display %}
+            {{ trainee.track_display }}
+          {% else %}
+          No Track Assigned
+          {% endif %}</td>
+          <td>{{trainee.trainee_address}}</td>
+          <td>
+            <a href="{% url "traineeProfile" trainee.trainee_id %}" class="btn btn-dark p-1">Profile</a>
+            <a href="#" data-url="{% url 'DeleteTrainee' trainee.trainee_id %}" class="btn btn-danger p-1 delete-btn">Delete</a>
+            <a href="{% url "UpdateTrainee" trainee.trainee_id %}" class="btn btn-primary p-1">Update</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

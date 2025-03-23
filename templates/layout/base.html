@@ -1,0 +1,227 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {%block title%} {%endblock%} </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="{% static 'images/ITI.png' %}">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-5" href="{% url "LandingPage" %}"><img src="{% static 'images/ITI.png' %}" alt="Your Image" width="120px" ></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto mx-5">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tracks
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url "TracksHome" %}">Track HomePage</a></li>
+            <li><a class="dropdown-item" href="{% url "TracksList" %}">Track List</a></li>
+            <li><a class="dropdown-item" href="{% url "AddTrack" %}">Add Track</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url "TracksList" %}">Update Track</a></li>
+            <li><a class="dropdown-item" href="{% url "TracksList" %}">Delete Track</a></li>
+          </ul>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Courses
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url "courseHome" %}">Course HomePage</a></li>
+            <li><a class="dropdown-item" href="{% url "courseList" %}">Course List</a></li>
+            <li><a class="dropdown-item" href="{% url "addCourse" %}">Add Course</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url "courseList" %}">Update Course</a></li>
+            <li><a class="dropdown-item" href="{% url "courseList" %}">Delete Course</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url "register" %}">Register</a></li>
+            <li><a class="dropdown-item" href="{% url "login" %}">Login</a></li>
+          </ul>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href=" {% url "TraineesPage" %} " id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Trainees
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url "TraineesHome" %}">Trainees HomePage</a></li>
+              <li><a class="dropdown-item" href="{% url "TraineesList" %}">Trainees List</a></li>
+              <li><a class="dropdown-item" href="{% url "AddTrainee" %}">Add Trainee</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url "TraineesList" %}">Update Trainee</a></li>
+              <li><a class="dropdown-item" href="{% url "TraineesList" %}">Delete Trainee</a></li>
+            </ul>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">FaQ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+
+        {%block content%}
+        {% endblock %}
+        
+        
+        {%block body%}
+        {% endblock %} 
+
+    </div>
+
+<div>
+    <footer
+            class="text-center text-lg-start text-dark bg-light"
+            >
+      <section
+               class="d-flex justify-content-between p-4"
+               style="background-color: darkred"
+               >
+        <div class="me-5 text-light">
+          <span>Get connected with us on social networks:</span>
+        </div>
+  
+        <div>
+          <a href="" class="text-white me-4 text-decoration-none">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="" class="text-white me-4 text-decoration-none">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="text-white me-4 text-decoration-none">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="text-white me-4 text-decoration-none">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="text-white me-4 text-decoration-none">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="text-white me-4 text-decoration-none">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+  
+      <section class="bg-light text-secondary">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold"><img src="{% static 'images/ITI.png' %}" alt="Your Image" width="120px" ></h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+  
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Products</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p>
+                <a href="#!" class="text-dark">MDBootstrap</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">MDWordPress</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">BrandFlow</a>
+              </p>
+              <p>
+                <a href="#!" class="text-dark">Bootstrap Angular</a>
+              </p>
+            </div>
+  
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold">Useful links</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+                <p>
+                  <a href="{% url "LandingPage" %}" class="text-dark">HomePage</a>
+                </p>
+              <p>
+                <a href="{% url "courseList" %}" class="text-dark">Courses List</a>
+              </p>
+              <p>
+                <a href="{% url "TracksList" %}" class="text-dark">Tracks List</a>
+              </p>
+              <p>
+                <a href="{% url "TraineesList" %}" class="text-dark">Trainees List</a>
+              </p>
+            </div>
+  
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold">Contact</h6>
+              <hr
+                  class="mb-4 mt-0 d-inline-block mx-auto"
+                  style="width: 60px; background-color: #7c4dff; height: 2px"
+                  />
+              <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+              <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+              <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <div
+           class="text-center p-3 text-light"
+           style="background-color: darkred"
+           >
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+           >MDBootstrap.com</a
+          >
+      </div>
+    </footer>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.querySelectorAll(".delete-btn").forEach(button => {
+          button.addEventListener("click", function(event) {
+            event.preventDefault();  // Prevents immediate redirection
+              let deleteUrl = this.getAttribute("data-url"); 
+              
+              Swal.fire({
+                  title: "Are you sure?",
+                  text: "This action cannot be undone!",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonText: "Yes, delete it!",
+                  cancelButtonText: "Cancel"
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      window.location.href = deleteUrl;
+                  }
+              });
+          });
+      });
+    </script>
+  </body>
+</html>
