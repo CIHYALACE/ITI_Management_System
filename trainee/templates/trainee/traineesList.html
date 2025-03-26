@@ -7,7 +7,7 @@
   <h2>Trainees List</h2>
   <hr>
   <a href="{% url 'AddTrainee' %}" class="btn btn-dark">Add Trainee</a>
-  <a href="{% url 'AddTraineeViaForm' %}" class="btn btn-outline-dark">Add Trainee Via Forms</a>
+  {% comment %} <a href="{% url 'AddTraineeViaForm' %}" class="btn btn-outline-dark">Add Trainee Via Forms</a> {% endcomment %}
   <a href="{% url 'DeletedTrainees' %}" class="btn btn-dark">Deleted Trainees</a>
   <table class="table table-striped">
     <thead>

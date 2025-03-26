@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from .models import TraineeProfile
 from trainee.forms import TraineeForm
 from django.db.models import Case, When, Value, CharField, F
-from django.views.generic import ListView, DetailView,UpdateView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView,UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -35,10 +35,10 @@ class TraineeDetailView(DetailView):
     template_name = "trainee/traineeProfile.html"
     context_object_name = 'trainee'
 
-class DeleteTraineeView(UpdateView):
+class DeleteTraineeView(DeleteView):
     model = TraineeProfile
     fields = []
-    template_name = "trainee/confirm_delete.html"
+    template_name = "trainee/deleteTrainee.html"
     success_url = reverse_lazy('TraineesList')
 
     def form_valid(self, form):
@@ -50,7 +50,7 @@ class DeleteTraineeView(UpdateView):
 class AddTraineeView(CreateView):
     model = TraineeProfile
     form_class = TraineeForm
-    template_name = "trainee/addTrainee.html"
+    template_name = "trainee/forms/addForm.html"
     success_url = reverse_lazy('TraineesList')
 
 class UpdateTraineeView(UpdateView):

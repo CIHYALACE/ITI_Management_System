@@ -1,4 +1,12 @@
 {% extends "layout/base.html" %}
 
 {%block content%}
+<h2>Confirm Deletion</h2>
+<p>Are you sure you want to delete "{{ object }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger" type="submit">Yes, Delete</button>
+  <a href="{% url 'TraineesList' %}" class="btn btn-secondary" >Cancel</a>
+</form>
 {% endblock %}
