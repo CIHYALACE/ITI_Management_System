@@ -9,7 +9,7 @@ class TraineeProfile(models.Model):
     trainee_last_name = models.CharField(max_length=100, null=False)
     trainee_email = models.EmailField(null=False)
     trainee_phone = models.IntegerField(null=False)
-    trainee_address = models.CharField(null=False)
+    trainee_address = models.CharField(max_length=100,null=False)
     trainee_image = models.ImageField()
     trainee_track = models.ForeignKey(to=Tracks, on_delete=models.SET_NULL, null=True)
     trainee_status = models.BooleanField(default=True)

@@ -1,0 +1,4 @@
+djnago
+djangorestframework
+django-cors-headers
+crispy_forms

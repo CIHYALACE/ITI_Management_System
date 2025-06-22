@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('trainee_last_name', models.CharField(max_length=100)),
                 ('trainee_email', models.EmailField(max_length=254)),
                 ('trainee_phone', models.IntegerField()),
-                ('trainee_address', models.CharField()),
+                ('trainee_address', models.CharField(max_length=100)),
                 ('trainee_image', models.ImageField(upload_to='')),
             ],
         ),
