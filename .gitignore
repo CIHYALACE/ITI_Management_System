@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyd
+.Python
+env/
+.venv/
+venv/
+ENV/
+env.bak/
+*.env
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# Django migrations (ignore all except __init__.py)
+**/migrations/*
+!**/migrations/__init__.py
+
+# Node.js/React
+dash_board/node_modules/
+dash_board/build/
+dash_board/.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Others
+*.bak
+*.swp
+*~
