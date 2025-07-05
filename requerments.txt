@@ -1,4 +1,5 @@
 djnago
+psycopg[binary]
 djangorestframework
 django-cors-headers
 crispy_forms
